@@ -1,5 +1,8 @@
 package leetcode;
 
+/**
+ * 动态规划，和62很像，多了一些限制条件
+ */
 class UniquePathsWithObstacles {
 
     public void solution(){
