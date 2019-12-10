@@ -26,8 +26,8 @@
 
 [LeetCode 746. Min Cost Climbing Stairs](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/minCostClimbingStairs.java)
 
-[LeetCode 240. Min Cost Climbing Stairs](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/searchMatrixII.java)
+[LeetCode 240. searchMatrixII](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/searchMatrixII.java)
 
-[LeetCode 74. Min Cost Climbing Stairs](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/searchMatrix.java)
+[LeetCode 74. searchMatrix](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/searchMatrix.java)
 
 
