@@ -13,6 +13,17 @@ public class BubbleSort {
         }
     }
 
+    public static void Bubblesor1t(int[] arr, int l, int r) {
+
+        for (int i = arr.length - 1; i > 0 ; i--) {
+            for (int j = 0; j < i; j++) {
+                if (arr[j] > arr[i]) {
+                    swap(arr, i, j);
+                }
+            }
+        }
+    }
+
     public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
@@ -35,7 +46,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] arr = new int[]{2,5,1,6,8,3};
-        Bubblesort(arr, 0, arr.length-1);
+        Bubblesor1t(arr, 0, arr.length-1);
         printArray(arr);
     }
 }

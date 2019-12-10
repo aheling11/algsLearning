@@ -31,18 +31,8 @@ public class heapsort {
     public static void heapify(int[] arr, int index, int size) {
         int left = index * 2 + 1;
         while ( left < size ) {
-//            int largest = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
             int largest = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
-//            int largest = index;
-//            if ( left + 1 < size) {
-//                if (arr[left] > arr[left + 1]) {
-//                    largest = left;
-//                } else {
-//                    largest = left + 1;
-//                }
-//            }
             largest = arr[index] > arr[largest] ? index : largest;
-
             if (largest == index) {
                 break;
             }
