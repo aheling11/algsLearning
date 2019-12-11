@@ -6,7 +6,7 @@ import java.util.List;
 
 
 
-public class Mergesort {
+public class    Mergesort {
 
     public static void mergesort(int[] arr) {
         if (arr == null || arr.length < 2) {

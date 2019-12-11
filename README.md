@@ -32,4 +32,6 @@
 
 [74. searchMatrix](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/searchMatrix.java)
 
+[1. two sum](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/twoSum.java)
+
 

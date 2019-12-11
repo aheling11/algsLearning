@@ -1,30 +1,47 @@
-package Niuke;
+package Niuke;// "static void main" must be defined in a public class.
+
 
 import java.util.Arrays;
 
-public class BubbleSort {
+public class MergesortTEST {
 
+    public static void mergesort(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        sortprocess(arr, 0, arr.length-1);
+    }
 
+    public static void sortprocess(int[] arr, int L, int R){
+        if (L == R) {
+            return;
+        }
+        int mid = (L + R)/2;
+        sortprocess(arr, L, mid);
+        sortprocess(arr, mid + 1, R);
+        merge(arr, L, R, mid);
+    }
 
-    public static void Bubblesort(int[] arr) {
-        for (int end = arr.length - 1; end > 0 ; end--) {
-            for (int i = 0; i < end; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    swap(arr, i, i + 1);
-                }
-            }
+    public static void merge(int[] arr, int L, int R, int mid){
+        int[] help = new int[R - L + 1];
+        int p = 0;
+        int p1 = L;
+        int p2 = mid + 1;
+        while ( p1 <= mid && p2 <= R){
+            help[p++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
+        }
+        while (p1 <= mid){
+            help[p++] = arr[p1++];
+        }
+        while (p2 <= R){
+            help[p++] = arr[p2++];
+        }
+
+        int j = 0;
+        for(int i = L; i <= R; i++) {
+            arr[i] = help[j++];
         }
     }
-
-    public static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-
-    }
-
-
-    // for test
     public static void rightmethod(int[] arr) {
         Arrays.sort(arr);
     }
@@ -85,16 +102,16 @@ public class BubbleSort {
         System.out.println();
     }
 
-    // for test
+
     public static void main(String[] args) {
         int testTime = 500000;
-        int maxSize = 10;
-        int maxValue = 10;
+        int maxSize = 100;
+        int maxValue = 100;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            Bubblesort(arr1);
+            mergesort(arr1);
             rightmethod(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
@@ -102,9 +119,6 @@ public class BubbleSort {
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
-
-
     }
-
-
 }
+
