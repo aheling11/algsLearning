@@ -34,4 +34,10 @@
 
 [1. two sum](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/twoSum.java)
 
+[15. three sum](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/threeSum.java)
+
+[141. LinkedListCycle](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/LinkedListCycle.java)
+
+[142. LinkedListCycleII](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/LinkedListCycleII.java)
+
 

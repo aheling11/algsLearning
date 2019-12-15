@@ -18,8 +18,6 @@ public class heapsort {
 
 
     }
-
-
     public static void heapinsert(int[] arr, int index) {
         while(arr[index] > arr[( index - 1 ) / 2]) {
             swap(arr, (index - 1)/2, index);
@@ -31,6 +29,7 @@ public class heapsort {
     public static void heapify(int[] arr, int index, int size) {
         int left = index * 2 + 1;
         while ( left < size ) {
+            //注意这一行，如果left+1>=size,就会赋值largest = left，所以后面的left + 1 和 left 顺序是不能变的
             int largest = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
             largest = arr[index] > arr[largest] ? index : largest;
             if (largest == index) {
