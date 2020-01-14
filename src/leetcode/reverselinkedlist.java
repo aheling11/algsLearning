@@ -1,6 +1,7 @@
 package leetcode;
 
 import moocZJU.MyTree;
+import utils.ListNode;
 
 public class reverselinkedlist {
     /**
@@ -13,11 +14,7 @@ public class reverselinkedlist {
      */
 
     ListNode head = null;
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
+
 
     public ListNode reverseList() {
         ListNode curr = head;

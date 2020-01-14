@@ -1,6 +1,9 @@
 package Test;
 
+import edu.princeton.cs.algs4.In;
+
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static utils.Utils.*;
 
@@ -71,6 +74,25 @@ public class Test {
         }
     }
 
+    public static int midsearch(int[] arr, int x){
+        Arrays.sort(arr);
+
+        int size = arr.length;
+        int L = 0;
+        int R = size - 1;
+        while(L <= R){
+            int mid = L + (R - L)>>1;
+            if (arr[mid] < x){
+                L = mid + 1;
+            } else if(arr[mid] > x){
+                R = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    }
+
     /**
      * 上浮
      * @param arr
@@ -115,7 +137,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-//        int[] arr = new int[]{-4,3,-1,0,-1,1,0,0};
+        int[] arr = new int[]{-4,3,-1,0,-1,1,0,0};
         int size = 100;
         int value = 100;
 
@@ -131,8 +153,9 @@ public class Test {
 //        System.out.println("nice");
 
 
-        int[] arr = new int[]{2,7,5,2};
-        bucketsort(arr,0, arr.length - 1);
-        printArray(arr);
+//        int[] arr = new int[]{2,7,5,2};
+//        bucketsort(arr,0, arr.length - 1);
+//        printArray(arr);
+       midsearch(arr,0);
     }
 }

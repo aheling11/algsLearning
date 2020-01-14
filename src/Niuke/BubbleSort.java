@@ -87,20 +87,24 @@ public class BubbleSort {
 
     // for test
     public static void main(String[] args) {
-        int testTime = 500000;
-        int maxSize = 10;
-        int maxValue = 10;
+        int testTime = 1;
+        int maxSize = 1000000;
+        int maxValue = 1000000;
         boolean succeed = true;
+        long start = System.currentTimeMillis();
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
             Bubblesort(arr1);
-            rightmethod(arr2);
+//            rightmethod(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
                 break;
             }
         }
+
+        long end = System.currentTimeMillis();
+        System.out.println((end - start)/1000);
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 
 

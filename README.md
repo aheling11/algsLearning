@@ -40,4 +40,9 @@
 
 [142. LinkedListCycleII](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/LinkedListCycleII.java)
 
+[3. Longest Substring Without Repeating Characters](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/lengthOfLongestSubstring.java)
+
+[121. maxProfit](https://github.com/aheling11/algsLearning/blob/master/src/leetcode/maxProfit.java)
+
+
 

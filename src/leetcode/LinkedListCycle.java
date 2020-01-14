@@ -1,19 +1,10 @@
 package leetcode;
 
 
+import utils.ListNode;
+
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-
-}
 
 public class LinkedListCycle {
     static ListNode head = null;

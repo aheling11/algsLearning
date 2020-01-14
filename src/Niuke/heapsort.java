@@ -19,6 +19,8 @@ public class heapsort {
 
     }
     public static void heapinsert(int[] arr, int index) {
+        String s =";";
+
         while(arr[index] > arr[( index - 1 ) / 2]) {
             swap(arr, (index - 1)/2, index);
             index = (index - 1) / 2;
@@ -63,7 +65,14 @@ public class heapsort {
 
     public static void main(String[] args) {
         int[] arr = new int[]{2,5,1,6,8,3};
-        heapsort(arr);
+//        heapsort(arr);
+//        for (int i = arr.length - 1; i >= 0; i--) {
+//            heapify(arr, i, arr.length);
+//        }
+        for (int i = 0; i < arr.length; i++) {
+            heapinsert(arr, i);
+        }
+
         printArray(arr);
     }
 }
