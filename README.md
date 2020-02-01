@@ -19,6 +19,10 @@
 # 已解题目
 
 ## 按题号 
+### 按类型
+
+[链表题汇总](https://github.com/aheling11/algsLearning/blob/master/Doc/LinkedListType.md)
+
 
 ### LeetCode
 

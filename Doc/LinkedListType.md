@@ -2,8 +2,6 @@
 
 [TOC]
 
-
-
 ## 1.反转链表
 
 ### 问题描述
@@ -69,21 +67,15 @@ class Solution {
 
 ### 问题分析
 
-这道算法题，设置一个pre变量记录反转开始前的那个节点，再设置一个cur变量记录反转开始的第一个节点。
+这道算法题需要对链表比较熟悉，设置一个pre变量记录反转开始前的那个节点，再设置一个cur变量记录反转开始的第一个节点。如图所示，以示例的数据为例，第一次循环后，第二次循环，也只操作cur和pre，节点3和节点2之间并不进行操作。
+
+![示例](https://github.com/aheling11/algsLearning/blob/master/Doc/image/1.png?raw=true)
 
 
 
 ### Solution
 
-```Java 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
+```java
 public static ListNode reverseBetween(ListNode head, int m, int n) {
         if (head == null){
             return head;
@@ -106,10 +98,6 @@ public static ListNode reverseBetween(ListNode head, int m, int n) {
 
     }
 ```
-
-
-
-
 
 
 
