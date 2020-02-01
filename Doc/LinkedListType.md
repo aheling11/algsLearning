@@ -20,7 +20,7 @@
 
 ### Solution
 
-```Java 
+```java 
 /**
  * Definition for singly-linked list.
  * public class ListNode {
