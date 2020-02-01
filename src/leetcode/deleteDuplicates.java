@@ -67,7 +67,22 @@ class deleteDuplicates {
         if (head.next == null){
             return head;
         }
-        return null;
+        ListNode dummyhead = new ListNode(0);
+        dummyhead.next = head;
+        ListNode slow = dummyhead;
+        ListNode fast = head;
+        while(fast != null){
+            while(fast.next != null && fast.val == fast.next.val){
+                fast = fast.next;
+            }
+            if (slow.next == fast) {
+                slow = slow.next;
+            } else {
+                slow.next = fast.next;
+            }
+            fast = fast.next;
+        }
+        return dummyhead.next;
     }
 
     public static void main(String[] args) {

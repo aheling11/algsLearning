@@ -2,7 +2,6 @@ package leetcode;
 
 import utils.Utils;
 
-import java.util.Random;
 
 public class SortAges {
 

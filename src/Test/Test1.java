@@ -1,20 +1,19 @@
 package Test;
-
-import java.util.Arrays;
-import java.util.HashMap;
-
-import static utils.Utils.printArray;
-import static utils.Utils.swap;
-
 public class Test1 {
 
 
+
     public static void main(String[] args) {
-        int a = -1;
-        if (a > 0) {
-            System.out.println(a);
-        } else {
-            System.out.println("这个数小于0");
-        }
+        String s1 = "abcs";
+        String s2 = "abcs";
+        System.out.println(s1.hashCode());
+        System.out.println(s2.hashCode());
+
+        int[] arr1 = new int[2];
+        int[] arr2 = new int[2];
+        System.out.println(arr1.hashCode());
+        System.out.println(arr2.hashCode());
+
+
     }
 }

@@ -28,14 +28,7 @@ public class reverselinkedlist {
         return prev;
     }
 
-    public void printLink() {
-        ListNode tmp = head;
-        while (tmp != null) {
-            System.out.print(tmp.val+" ");
-            System.out.println();
-            tmp = tmp.next;
-        }
-    }
+
 
     public void printLink(ListNode head) {
         ListNode tmp = head;

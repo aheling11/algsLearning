@@ -15,7 +15,6 @@ public class ListNode {
         }
         System.out.println();
     }
-
     public static int getLength(ListNode l){
         ListNode tmp = l;
         int length = 0;

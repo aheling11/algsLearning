@@ -76,21 +76,22 @@ public class Test {
 
     public static int midsearch(int[] arr, int x){
         Arrays.sort(arr);
-
-        int size = arr.length;
         int L = 0;
-        int R = size - 1;
-        while(L <= R){
-            int mid = L + (R - L)>>1;
-            if (arr[mid] < x){
-                L = mid + 1;
-            } else if(arr[mid] > x){
+        int R = arr.length - 1;
+        int mid = L + (R - L) >> 1;
+        while(L < R){
+            if (arr[mid] > x){
                 R = mid - 1;
+            } else if (arr[mid] < x){
+                L = mid + 1;
             } else {
+                System.out.println(mid);
                 return mid;
             }
+            mid = L + (R - L) >> 1;
+
         }
-        return -1;
+        return mid;
     }
 
     /**
@@ -136,8 +137,10 @@ public class Test {
         }
     }
 
+
+
     public static void main(String[] args) {
-        int[] arr = new int[]{-4,3,-1,0,-1,1,0,0};
+        int[] arr = new int[]{1,3,5,9,2,10,4,3};
         int size = 100;
         int value = 100;
 
@@ -156,6 +159,6 @@ public class Test {
 //        int[] arr = new int[]{2,7,5,2};
 //        bucketsort(arr,0, arr.length - 1);
 //        printArray(arr);
-       midsearch(arr,0);
+       midsearch(arr,2);
     }
 }
