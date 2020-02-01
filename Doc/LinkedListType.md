@@ -20,7 +20,7 @@
 
 ### Solution
 
-```java 
+```java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -47,7 +47,6 @@ class Solution {
     }
 }
 ```
-
 ## 2.反转链表 II
 
 ### 问题描述
