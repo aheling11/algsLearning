@@ -87,9 +87,9 @@ public class BubbleSort {
 
     // for test
     public static void main(String[] args) {
-        int testTime = 1;
-        int maxSize = 1000000;
-        int maxValue = 1000000;
+        int testTime = 10;
+        int maxSize = 1000;
+        int maxValue = 1000;
         boolean succeed = true;
         long start = System.currentTimeMillis();
         for (int i = 0; i < testTime; i++) {

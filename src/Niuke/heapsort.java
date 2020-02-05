@@ -19,7 +19,6 @@ public class heapsort {
 
     }
     public static void heapinsert(int[] arr, int index) {
-        String s =";";
 
         while(arr[index] > arr[( index - 1 ) / 2]) {
             swap(arr, (index - 1)/2, index);

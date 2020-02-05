@@ -10,18 +10,21 @@ public class Utils {
         }
         System.out.println();
     }
-    public static int[] generateRandomArray(int maxSize, int maxValue) {
+    public static int[] GenerateRandomArray(int maxSize, int maxValue) {
         // Math.random -> double [0,1)
         // (int)((maxSize + 1) * Math.random()) -> [0,size]的整数
         // size = 6, size + 1 = 7
         // Math.random() -> [0,1) * 7 -> [0,7)
         // double -> int[0,6] -> int
-        int[] arr = new int[(int)((maxSize + 1) * Math.random())];
+        int[] arr = new int[5 + (int)((maxSize + 1) * Math.random())];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
         }
         return arr;
     }
+
+
+
 
     // for test
     public static int[] copyArray(int[] arr) {

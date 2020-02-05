@@ -3,6 +3,7 @@ package leetcode;
 
 import java.util.HashMap;
 
+import static Niuke.BubbleSort.generateRandomArray;
 import static utils.Utils.*;
 
 
