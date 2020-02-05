@@ -23,6 +23,8 @@
 
 [链表题汇总](https://github.com/aheling11/algsLearning/blob/master/Doc/LinkedListType.md)
 
+[面试常见题](https://github.com/aheling11/algsLearning/blob/master/Doc/normalqus.md)
+
 
 ### LeetCode
 
