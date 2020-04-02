@@ -159,6 +159,7 @@ public class Test {
 //        int[] arr = new int[]{2,7,5,2};
 //        bucketsort(arr,0, arr.length - 1);
 //        printArray(arr);
+
        midsearch(arr,2);
     }
 }

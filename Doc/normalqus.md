@@ -275,3 +275,53 @@
    ```
 
    
+
+## 4. 二进制中1的个数
+
+### 问题描述
+
+> 输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
+>
+> 链接：https://www.nowcoder.com/practice/8ee967e43c2c4ec193b040ea7fbb10b8?tpId=13&tqId=11164&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+
+### 问题分析
+
+首先复习一下2的补码，Two‘s complement，在Java中就是使用补码来表示负数的。参考来自：https://www.ruanyifeng.com/blog/2009/08/twos_complement.html
+
+**什么是2的补码？**
+
+它是一种数值的转换方法，要分二步完成：
+
+第一步，每一个二进制位都取相反值，0变成1，1变成0。比如，00001000的相反值就是11110111。
+
+第二步，将上一步得到的值加1。11110111就变成11111000。
+
+回到这题：
+
+1. 我们一开始想到的做法是将该数与flag（初始化为1）进行与操作，这样可以判断该数最后一位是不是1，然后对flag进行左移操作，flag变成10，来判断该数最后第二位是不是1，依次类推。
+
+2. 但是其实有更巧妙的算法，我们首先要知道一个性质，**(n-1)&n 得到的结果相当于把整数的二进制表示中最右边的1变成0。**利用该性质可以写出代码。
+
+   比如 n = 1010, n - 1 = 1001, (n-1)&n = 1000
+
+   ​		 n = 1011, n - 1 = 1010, (n-1)&n = 1010
+
+
+
+### Solution
+
+1. 二分查找
+
+   ```java
+   public static int NumberOf1(int n) {
+           int cnt = 0;
+           while (n != 0){ // 循环终止条件就是n==0，因为最终n中所有位数都会变成0
+               cnt++;
+               n = (n - 1) & n;
+           }
+           System.out.println(cnt);
+           return cnt;
+       }
+   ```
+
+   

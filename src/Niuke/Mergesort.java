@@ -21,7 +21,7 @@ public class Mergesort {
         }
         int mid = L + ((R - L) >> 1); //防止越界
         sortProcess(arr, L, mid);
-        sortProcess(arr,mid+1, R);
+        sortProcess(arr,mid + 1, R);
         merge(arr, L, mid, R);
     }
 

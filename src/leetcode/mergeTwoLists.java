@@ -7,40 +7,41 @@ public class mergeTwoLists {
 
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode curr1 = l1;
-        ListNode curr2 = l2;
-        if (curr1 == null) {
-            return curr2;
-        } else if (curr2 == null) return curr1;
-
-        while (curr1!=null && curr2!=null) {
-            ListNode newNode1 = curr1.next;
-            ListNode newNode2 = curr2.next;
-            if (curr1.val == curr2.val) {
-                curr1.next = curr2;
-                curr1 = newNode1;
-            } else if (curr1.val < curr2.val){
-                curr1.next = curr2;
-                curr1 = newNode1;
-            } else {
-                curr2.next = curr1;
-                curr2 = newNode2;
-            }
-
-            if (newNode1 == null) {
-                curr1.next = curr2;
-                break;
-            } else if (newNode2 == null){
-                curr2.next = curr1;
-                break;
-            }
+        if(l1 == null){
+            return l2;
         }
+        if(l2 == null){
+            return l1;
+        }
+        if (l1.val < l2.val){
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
+    }
 
-
-
-        return l1.val <= l2.val ? l1 : l2;
-
-
+    public ListNode mergeTwoLists_iter(ListNode l1, ListNode l2) {
+        ListNode dhead = new ListNode(0);
+        ListNode prev = dhead;
+        while (l1 != null && l2 != null){
+            if (l1.val < l2.val){
+                prev.next = l1;
+                l1 = l1.next;
+            } else {
+                prev.next = l2;
+                l2 = l2.next;
+            }
+            prev = prev.next;
+        }
+        if (l1 != null){
+            prev.next = l1;
+        }
+        if (l2 != null){
+            prev.next = l2;
+        }
+        return dhead.next;
     }
 
     public void printLink(ListNode head) {
@@ -77,7 +78,16 @@ public class mergeTwoLists {
         r.addNode(3, l2);
         r.addNode(4, l2);
 
-        r.printLink(r.mergeTwoLists(l1, l2));
+//        r.printLink(r.mergeTwoLists_iter(l1, l2));
+        long a = -2147483648;
+        a = 7;
+        if( (a & 1) == 0){
+
+        }
+        System.out.println(Long.toBinaryString(a));
+        System.out.println(Long.toBinaryString(~a));
+        System.out.println(a & 1);
+        System.out.println(~(a-1));
     }
 
 }
