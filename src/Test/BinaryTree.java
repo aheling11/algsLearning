@@ -28,9 +28,9 @@ public class BinaryTree {
         if (root == null){
             return;
         }
+        System.out.println(root.data);
         preorderTraversal(root.leftChild);
         preorderTraversal(root.rightChild);
-        System.out.println(root.data);
 
     }
 
@@ -177,10 +177,11 @@ public class BinaryTree {
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         tree.createBinaryTree();
-        System.out.println(tree.contain(tree.root, 50));
 //        tree.InsertBST_2(tree.root, 111);
 //        tree.indorderTraversal_nonrecur(tree.root);
-        tree.postdorderTraversal_nonrecur(tree.root);
+//        tree.postdorderTraversal_nonrecur(tree.root);
+        tree.preorderTraversal_nonrecur(tree.root);
+        tree.preorderTraversal(tree.root);
     }
 
 }

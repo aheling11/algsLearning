@@ -3,33 +3,33 @@ package Niuke;
 public class Quicksort {
 
     public static void quicksort(int[] arr) {
-        quicksortprocess(arr, 0, arr.length - 1);
+        quicksort(arr, 0, arr.length - 1);
     }
 
-    public static void quicksortprocess(int[] arr, int L, int R) {
-        if (L < R) {
+    public static void quicksort(int[] arr, int L, int R){
+        if (L < R){
             int[] p = partition(arr, L, R);
-            quicksortprocess(arr, L, p[0] - 1);
-            quicksortprocess(arr, p[1]+1, R);
+            quicksort(arr, L, p[0] - 1);
+            quicksort(arr, p[1] + 1, R);
         }
-
     }
 
-    public static int[] partition(int[] arr, int l, int r) {
-        int less = l - 1;
-        int more = r;
-        int cur = l;
-        while ( cur < more) {
-            if (arr[cur] < arr[r]) {
-                swap(arr, ++less, cur++);
-            } else if (arr[cur] > arr[r]) {
-                swap(arr, --more, cur);
+    public static int[] partition(int[] arr, int L, int R){
+        swap(arr, L + (int)(Math.random()*(R - L + 1)), R);
+        int less = L - 1;
+        int cur = L;
+        int more = R;
+        while(cur < more){
+            if (arr[cur] > arr[R]){
+                swap(arr, cur, --more);
+            } else if(arr[cur] < arr[R]){
+                swap(arr, cur++, ++less);
             } else {
                 cur++;
             }
         }
-        swap(arr, more, r);
-        return new int[]{ less + 1, more};
+        swap(arr, cur, R);
+        return new int[]{less + 1, more};
     }
 
     public static void swap(int[] arr, int i, int j) {

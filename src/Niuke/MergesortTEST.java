@@ -9,14 +9,12 @@ public class MergesortTEST {
         if (arr == null || arr.length < 2) {
             return;
         }
-        sortprocess(arr, 0, arr.length-1);
+       sortprocess(arr, 0, arr.length - 1);
     }
 
     public static void sortprocess(int[] arr, int L, int R){
-        if (L == R) {
-            return;
-        }
-        int mid = (L + R)/2;
+        if (L == R) return;
+        int mid = L + ((R - L) >> 1);
         sortprocess(arr, L, mid);
         sortprocess(arr, mid + 1, R);
         merge(arr, L, R, mid);
@@ -27,7 +25,7 @@ public class MergesortTEST {
         int p = 0;
         int p1 = L;
         int p2 = mid + 1;
-        while ( p1 <= mid && p2 <= R){
+        while(p1 <= mid && p2 <= R){
             help[p++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
         while (p1 <= mid){
@@ -36,11 +34,10 @@ public class MergesortTEST {
         while (p2 <= R){
             help[p++] = arr[p2++];
         }
-
-        int j = 0;
-        for(int i = L; i <= R; i++) {
-            arr[i] = help[j++];
+        for(int i = 0; i < help.length; i++){
+            arr[L + i] = help[i];
         }
+
     }
     public static void rightmethod(int[] arr) {
         Arrays.sort(arr);
