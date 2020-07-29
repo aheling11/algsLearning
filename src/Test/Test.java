@@ -1,10 +1,12 @@
 package Test;
 
 import edu.princeton.cs.algs4.In;
+import utils.TreeNode;
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import static Niuke.MergesortTEST.generateRandomArray;
 import static utils.Utils.*;
 
 public class Test {
@@ -37,25 +39,27 @@ public class Test {
             quicksort(arr, L, p[0] - 1);
             quicksort(arr, p[1] + 1, R);
         }
+
    }
 
 
     public static int[] partition(int[] arr, int L, int R){
-        swap(arr, L+ (int) (Math.random() * (R - L + 1)), R);
-        int cur = L;
+        swap(arr, L + (int) (Math.random() * ((R - L) + 1)), R);
         int less = L - 1;
         int more = R;
-        while( cur < more) {
-            if (arr[cur] < arr[R]) {
+        int cur = L;
+        while (cur < more){
+            if (arr[cur] < arr[R]){
                 swap(arr, ++less, cur++);
-            } else if (arr[cur] > arr[R]){
+            } else if(arr[cur] > arr[R]){
                 swap(arr, --more, cur);
             } else {
                 cur++;
             }
         }
-        swap(arr, more, R);
+        swap(arr, cur, R);
         return new int[]{less + 1, more};
+
     }
 
 
@@ -140,26 +144,8 @@ public class Test {
 
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1,3,5,9,2,10,4,3};
-        int size = 100;
-        int value = 100;
-
-//        for (int i = 0; i < 5000; i++) {
-//            int[] arr = generateRandomArray(size, value);
-//            int[] arr1 = copyArray(arr);
-//            heapsort(arr,0, arr.length - 1);
-//            Arrays.sort(arr1);
-//            if (!isEqual(arr, arr1)) {
-//                System.out.println("fuck");
-//            }
-//        }
-//        System.out.println("nice");
 
 
-//        int[] arr = new int[]{2,7,5,2};
-//        bucketsort(arr,0, arr.length - 1);
-//        printArray(arr);
 
-       midsearch(arr,2);
     }
 }

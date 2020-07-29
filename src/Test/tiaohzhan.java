@@ -1,6 +1,8 @@
 package Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Stack;
 
 import static Niuke.MergesortTEST.generateRandomArray;
 
