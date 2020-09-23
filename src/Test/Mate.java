@@ -1,10 +1,42 @@
 package Test;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.concurrent.Semaphore;
+
 interface Mate {
 
-    static void mate(){
-        System.out.println("matiiiiing from interface");
+      class apple{
+        int name;
+        final int[] value = new int[]{1,2,3};
+
+
     }
 
-     void rest();
+    class pear{
+        int name;
+        int[] value = new int[]{1,2,3};
+
+
+
+    }
+
+    public static String appendStr(apple apple){
+        return "";
+    }
+
+    //可变的StringBuilder
+    public static void appendSb(pear pear){
+    }
+
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+
+        String s = "Hello World";
+        System.out.println("s = " + s); //Hello World
+
+
+
+
+    }
+
 }

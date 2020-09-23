@@ -35,7 +35,7 @@ public class hasPath {
 
 
     public static void main(String[] args) {
-        //a b c e s f c s a d e e
+        //a b c.cpp e s f c.cpp s a d e e
         char[] matrix = new char[]{'a','b','c','e','s','f','c','s','a','d','e','e'};
         int rows = 3;
         int cols = 4;

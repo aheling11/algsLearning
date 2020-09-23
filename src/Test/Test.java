@@ -4,6 +4,10 @@ import edu.princeton.cs.algs4.In;
 import utils.TreeNode;
 
 import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 import static Niuke.MergesortTEST.generateRandomArray;
@@ -11,141 +15,50 @@ import static utils.Utils.*;
 
 public class Test {
 
-    public static void Bubblesort(int[] arr) {
-        for (int i = arr.length - 1; i >= 0 ; i--) {
-            for (int j = 0; j < i; j++) {
-                if (arr[j] > arr[j + 1]){
-                    swap(arr, j , j+ 1);
-                }
-            }
-        }
-    }
-
-    public static void selectsort(int[] arr){
-
-        for (int i = 0; i < arr.length; i++) {
-            int minindex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                minindex = arr[j] < arr[minindex] ? j : minindex;
-            }
-            swap(arr, i, minindex);
-        }
-    }
-
-
-   public static void quicksort(int[] arr, int L, int R){
-        if (L < R){
-            int[] p = partition(arr, L, R);
-            quicksort(arr, L, p[0] - 1);
-            quicksort(arr, p[1] + 1, R);
-        }
-
-   }
-
-
-    public static int[] partition(int[] arr, int L, int R){
-        swap(arr, L + (int) (Math.random() * ((R - L) + 1)), R);
-        int less = L - 1;
-        int more = R;
-        int cur = L;
-        while (cur < more){
-            if (arr[cur] < arr[R]){
-                swap(arr, ++less, cur++);
-            } else if(arr[cur] > arr[R]){
-                swap(arr, --more, cur);
-            } else {
-                cur++;
-            }
-        }
-        swap(arr, cur, R);
-        return new int[]{less + 1, more};
-
-    }
-
-
-    public static void heapsort(int[] arr, int L, int R){
-        if (arr == null || arr.length < 2) {
-            return;
-        }
-        for (int i = 0; i < arr.length; i++) {
-            heapinsert(arr, i);
-        }
-        int size = arr.length;
-        swap(arr, 0, --size);
-        while (size > 0){
-            heapify(arr, 0, size);
-            swap(arr, 0, --size);
-        }
-    }
-
-    public static int midsearch(int[] arr, int x){
-        Arrays.sort(arr);
-        int L = 0;
-        int R = arr.length - 1;
-        int mid = L + (R - L) >> 1;
-        while(L < R){
-            if (arr[mid] > x){
-                R = mid - 1;
-            } else if (arr[mid] < x){
-                L = mid + 1;
-            } else {
-                System.out.println(mid);
-                return mid;
-            }
-            mid = L + (R - L) >> 1;
-
-        }
-        return mid;
-    }
-
-    /**
-     * 上浮
-     * @param arr
-     * @param index
-     */
-    public static void heapinsert(int[] arr, int index) {
-        while (arr[index] > arr[(index - 1) / 2]){
-            swap(arr, index, (index - 1) / 2);
-            index = (index - 1) / 2;
-        }
-    }
-
-    public static void heapify(int[] arr,int index,  int size) {
-        int left = index * 2 + 1;
-        while (left < size){
-           int largest = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
-//           int largest = left + 1 < size && arr[left] > arr[left + 1] ? left : left + 1;
-           largest = arr[largest] > arr[index] ? largest : index;
-           if (largest == index) {
-               break;
-           }
-           swap(arr, index, largest);
-           index = largest;
-           left = index * 2 + 1;
-       }
-
-    }
-
-
-    public static void bucketsort(int[] arr, int L, int R){
-        int[] carr = new int[10];
-        for (int i = 0; i < arr.length; i++) {
-            carr[arr[i]]++;
-        }
-        printArray(carr);
-        int k = 0;
-        for (int i = 0; i < carr.length; i++) {
-            for (int j = 0; j < carr[i]; j++) {
-                System.out.print(i + " " );
-            }
-        }
-    }
-
 
 
     public static void main(String[] args) {
+        Book a = new Book("aaa",5);
+        Book b = new Book("bbb",1);
+//        Set<Book> set = new HashSet<>();
+//        HashMap<Book, Integer> map = new HashMap<>();
+//        map.put(a, 1);
+//        map.put(b, 2);
+//        Executors.newFixedThreadPool(1);
+//        Executors.newSingleThreadExecutor();
+//        Executors.newCachedThreadPool();
+//        for (Book book : set) {
+//            System.out.println(book.name + " " + book.value);
+//        }
 
+        ThreadLocal threadLocal = new ThreadLocal();
 
+        String za = "大萨达";
+        System.out.println(za.length());
 
+    }
+}
+
+class Book{
+    String name;
+    int value;
+
+    public Book(String name, int value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return value == book.value &&
+                Objects.equals(name, book.name);
+    }
+
+//    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

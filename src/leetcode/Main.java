@@ -1,48 +1,40 @@
-package leetcode;// 本题为考试多行输入输出规范示例，无需提交，不计分。
-import java.util.Scanner;
+package leetcode;
 
-public class Main {
+import java.math.BigDecimal;
 
-    public static void Q1(){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        String[] words = new String[n];
-        for (int i = 0; i < n; i++) {
-            words[i] = sc.nextLine();
-        }
-        int cnt = 0;
-
-        for (String word : words) {
-            System.out.println(word);
-        }
-    }
-    public static int Q4(){
-        Scanner sc = new Scanner(System.in);
-        String X = sc.nextLine();
-        String Y = sc.nextLine();
-        int[][]c = new int[X.length()+1][Y.length()+1];
-        int maxlen = 0;
-        int maxindex = 0;
-        for(int i =1;i<=X.length();i++){
-            for(int j=1;j<=Y.length();j++){
-                if(X.charAt(i-1) == Y.charAt(j-1)){
-                    c[i][j] = c[i-1][j-1]+1;
-                    if(c[i][j] > maxlen)
-                    {
-                        maxlen = c[i][j];
-                        maxindex = i + 1 - maxlen;
+class numTriplets {
+    public static int numTriplets(int[] nums1, int[] nums2) {
+        int res = 0;
+        for(int i = 0; i < nums1.length; i++){
+            long temp = nums1[i] * nums1[i];
+            for(int j = 0; j < nums2.length; j++){
+                for(int k = j + 1; k < nums2.length; k++){
+                    if(temp == nums2[j] * nums2[k]){
+                        res++;
                     }
                 }
             }
         }
-        System.out.println(maxlen);
-        return maxlen;
-
+        for(int i = 0; i < nums2.length; i++){
+            long temp = nums2[i] * nums2[i];
+            for(int j = 0; j < nums1.length; j++){
+                for(int k = j + 1; k < nums1.length; k++){
+                    if(temp == nums1[j] * nums1[k]){
+                        res++;
+                    }
+                }
+            }
+        }
+        return res;
     }
 
     public static void main(String[] args) {
-        Q4();
+        int[] a = new int[]{43024,99908};
+        int[] b = new int[]{1864};
 
+        int i = numTriplets(a, b);
+        System.out.println(i);
     }
+
+
 }

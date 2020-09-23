@@ -4,52 +4,73 @@ package leetcode;
  * 5. 最长回文子串
  */
 class longestPalindrome {
-    public static String longestPalindrome(String s) {
-        if (s == null || s.length() < 1){
-            return "";
+    /**
+     * 1.暴力法
+     * @param s
+     * @return
+     */
+    public static String longestPalindrome_brute(String s) {
+        if (s == null || s.length() <= 1){
+            return s;
         }
-        char[] arr = s.toCharArray();
-        int n = s.length();
-        int[][] dp = new int[n][n];
-        int max = -1;
-        int start = 0;
-        int end = 0;
-
-        for (int i = 0; i < n; i++) {
-            dp[i][i] = 1;
-        }
-        for(int k = 1; k < n; k++){
-            int i = k;
-            int j = 0;
-            while(i < n){
-                if (i - j== 1 && arr[i] == arr[j]){
-                    dp[i][j] = 1;
+        String res = s;
+        for(int size = 1; size <= s.length(); size++){
+            for(int i = 0; i < s.length(); i++){
+                if(count(s, i, i + size - 1)){
+                    res = s.substring(i, i + size);
+                    break;
                 }
-                if (arr[j] == arr[i] && dp[j+1][i-1] == 1){
-                    if (i - j + 1 > max){
-                        max = i - j + 1;
-                        start = j;
-                        end = i;
-                    }
-                    dp[i][j] = 1;
-                }
-                i++;
-                j++;
             }
         }
-
-        for (int i = 0; i < dp.length; i++) {
-            for (int j = 0; j < dp[0].length; j++) {
-                System.out.print(dp[i][j]);
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-        return s.substring(start, end + 1);
+        return res;
     }
 
+    private static boolean count(String s, int start, int end){
+        if(end >= s.length()) return false;
+        while(end > start){
+            if(s.charAt(start) != s.charAt(end)){
+                return false;
+            }
+            end--;
+            start++;
+        }
+        return true;
+    }
+
+    /**
+     * 2.dp方法
+     * @param s
+     * @return
+     */
+    public static String longestPalindrome_dp(String s) {
+        if (s == null || s.length() <= 1){
+            return s;
+        }
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        char[] chars = s.toCharArray();
+        int start = 0;
+        int maxLen = 0;
+        for(int j = 0; j < s.length(); j++){
+            for(int i = 0; i <= j; i++){
+                if (chars[i] != chars[j]){
+                    dp[i][j] = false;
+                } else {
+                    if (j - i < 3){
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+                if (dp[i][j] && j - i + 1 > maxLen){
+                    start = i;
+                    maxLen = j - i + 1;
+                }
+            }
+        }
+        return s.substring(start, start + maxLen);
+    }
     public static void main(String[] args) {
-        String s = "babad";
-        System.out.println(longestPalindrome(s));
+        String s = "adcacdda";
+        System.out.println(longestPalindrome_dp(s));
     }
 }

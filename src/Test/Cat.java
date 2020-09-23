@@ -1,5 +1,7 @@
 package Test;
 
+import edu.princeton.cs.algs4.In;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
@@ -9,6 +11,7 @@ public class Cat extends Animal implements Mate{
 
     public class MyThread extends Thread{
 
+
     }
 
     public Cat(String name, int age) {
@@ -16,9 +19,10 @@ public class Cat extends Animal implements Mate{
     }
 
     public static void main(String[] args) throws InterruptedException {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        hashMap.getOrDefault(2,0);
         Cat cat = new Cat("alice", 12);
         cat.eat();
-        Mate.mate();
         ArrayList<Integer> a = new ArrayList<>();
         a.add(1);
         a.add(2);
@@ -42,9 +46,5 @@ public class Cat extends Animal implements Mate{
 
 
 
-    @Override
-    public void rest() {
-        TreeMap<Integer, Integer> map = new TreeMap<>();
 
-    }
 }

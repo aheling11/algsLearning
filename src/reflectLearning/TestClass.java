@@ -11,4 +11,11 @@ public class TestClass {
     public String getMsg(){
         return MSG;
     }
+
+    public static void main(String[] args) {
+        ClassLoader c1 = Object.class.getClassLoader();
+        System.out.println(c1);
+        ClassLoader c2 = TestClass.class.getClassLoader();
+        System.out.println(c2);
+    }
 }
